@@ -2,10 +2,10 @@
 ;version 1
 ;type process
 ;categories "http://lv2plug.in/ns/lv2core#CompressorPlugin"
-;name "Compress &dynamics 1.2.6..."
+;name "Compress &dynamics 1.2.7..."
 ;action "Compressing..."
 ;info "Does dynamic (volume) compression with lookahead.\n'Compress ratio' is how much compression to apply. Raise when soft parts\n  are too soft, and lower to keep some dynamic range. You can soften the\n  soft parts instead of increasing them with values < 0, and invert\n  loudness with values > 1 (lower max amp when you do).\n'Hardness' is how agressively to compress. Raise when parts are still\n  hard to hear (even with a high compress ratio). Lower when the result\n  sounds distorted.\nRaise 'floor' to make quiet parts stay quiet.\nRaise 'noise gate falloff' to make quiet parts (beneath 'floor') disappear.\nLower 'maximum amplitude' if you experience clipping."
-;control compress-ratio "Compress ratio" real "" .5 -.5 1.25
+;control compress-ratio "Compress ratio" real "" .85 -.5 1.25
 
 ;; TO ENABLE ADVANCED SETTINGS: delete one semicolon from the beginning of the next two lines, then add one to following four.
 
@@ -17,9 +17,9 @@
 (setf left-width-s (* hardness hardness 510))
 (setf right-width-s (* hardness hardness 340))
 
-;control floor "Floor" real "dB" -32 -96 0
-;control noise-factor "Noise gate falloff" real "factor" 0 -2 10
-;control scale-max "Maximum amplitude" real "linear" .99 .0 1.0
+;control floor "Floor" real "dB" -24 -96 0
+;control noise-factor "Noise gate falloff" real "factor" 2.0 -2 10
+;control scale-max "Maximum amplitude" real "linear" .95 .0 1.0
 
 ;; TO ENABLE ADVANCED SETTINGS: delete one semicolon from the beginning of the next two lines, then add one to following two.
 
@@ -29,7 +29,7 @@
 (setf left-exponent 2)
 (setf right-exponent 4)
 
-;;Version 1.2.6
+;;Version 1.2.7
 
 ;;Authored by Chris Capel (http://pdf23ds.net)
 ;;All rights reserved
